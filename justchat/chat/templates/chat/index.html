@@ -1,0 +1,56 @@
+{% load pwa %}
+{% load staticfiles %}		
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    {% progressive_web_app_meta %}
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+    <style type="text/css">
+        .goog-te-banner-frame.skiptranslate{display:none!important;}
+        body{top:0px!important;}
+    </style>
+</head>
+<body id="page-top">
+  <div id="wrapper">
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <div class="container-fluid" align="center">
+        	<div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h3 class="m-0 font-weight-bold text-primary" style="color:green;" align="Center">What chat room would you like to enter?</h3>
+                </div>
+                <div class="card-body">
+                	 <div class="col-lg-4 col-sm-6 col-xs-12">
+    <input id="room-name-input" style="float:center;" type="text" align="middle"/><br/>
+    <hr>
+    <input class="btn btn-success btn-block" id="room-name-submit" type="button" value="Enter"/>
+    <hr>
+    <p>Enter "Expert" for expert chat room</p>
+    <p>Enter "Local" for local farmer group</p>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+    </script>
+</body>
+</html>
