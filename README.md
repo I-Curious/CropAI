@@ -1,1 +1,0 @@
-# sih_mindtree_lb2_code_ninjas
